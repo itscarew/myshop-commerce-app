@@ -8,40 +8,47 @@ export default function App({ Component, pageProps }: AppProps) {
 
   type Data = {
     id: number;
-    vote_average: number;
-    poster_path: string;
-    backdrop_path: string;
+    image: string;
     title: string;
-    overview: string;
-    release_date: string;
+    description: string;
+    category: string;
+    price: string;
+    rating: { rate: string }
   };
-  const [watchList, setWatchList] = useState<Data[]>([])
+  const [cart, setCart] = useState<Data[]>([])
   const [theme, setTheme] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
 
-  const addWatchList = (movie: any) => {
-    const checkWatchList = watchList.find((watchList) => {
-      return watchList.id === movie.id
+  const handleCartState = () => {
+    setCartOpen(!cartOpen)
+  }
+
+  const addToCart = (cartItem: any) => {
+    const checkCart = cart.find((cart) => {
+      return cart?.id === cartItem?.id
     })
-    if (!checkWatchList) {
-      const updatedArray = [...watchList, movie]
-      setWatchList(updatedArray)
-      Alert({ title: "Added to WatchList", theme: theme })
+    if (!checkCart) {
+      const updatedArray = [...cart, cartItem]
+      setCart(updatedArray)
+      setCartOpen(true)
     } else {
-      Alert({ title: "Already added to WatchList", type: NotifyType.info, theme: theme })
+      Alert({ title: "Already added to Cart", type: NotifyType.info, theme: theme })
+      setCartOpen(true)
     }
   }
 
-  const removeWatchList = (id: number) => {
-    const updatedArray = watchList.filter((watchList) => {
-      return watchList.id !== id
+  const removeCartItem = (id: number) => {
+    const updatedArray = cart.filter((cart) => {
+      return cart.id !== id
     })
-    setWatchList(updatedArray)
+    setCart(updatedArray)
   }
 
   return (<AppContext.Provider
     value={{
-      watchListState: { watchList, addWatchList, removeWatchList },
-      themeState: { theme, setTheme }
+      mainCartState: { cart, addToCart, removeCartItem, setCart },
+      themeState: { theme, setTheme },
+      cartState: { cartOpen, handleCartState }
     }}>
     <Component {...pageProps} />
   </AppContext.Provider>)

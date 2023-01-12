@@ -2,14 +2,14 @@ import axios from "axios";
 // const accessToken = sessionStorage.getItem("accessToken");
 //process.env.REACT_APP_BUSINESS_API
 
-export const MovieApi = axios.create({
-  baseURL: "https://api.themoviedb.org/3/movie/",
+export const ShopApi = axios.create({
+  baseURL: "https://fakestoreapi.com/",
   headers: {
     "content-type": "application/json",
   },
 });
 
-MovieApi.interceptors.request.use(
+ShopApi.interceptors.request.use(
   async (config) => {
     // const accessToken = sessionStorage.getItem("accessToken");
     // config.headers.authorization = `Bearer ${accessToken}`;

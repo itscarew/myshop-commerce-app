@@ -9,7 +9,7 @@ export default function SmallCard({ data }: any) {
             <div className='flex  w-full mb-4' style={{ height: "9rem" }}  >
                 <div className='w-5/12  relative rounded-lg overflow-hidden ' >
                     <Image
-                        src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}
+                        src={`/`}
                         alt="Picture of the author"
                         fill
                     />

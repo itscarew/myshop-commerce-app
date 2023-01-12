@@ -5,22 +5,24 @@ import Footer from './Footer'
 import NavBar from './NavBar'
 import RightNav from './RightNav'
 import React, { useContext } from "react";
+import HeaderNavBar from './HeaderNavBar'
 
 export default function Layout({ children }: any) {
-    const { themeState }: any = useContext(AppContext)
+    const { cartState }: any = useContext(AppContext)
     return (
         <>
             <AppHead />
-            <div className={`${themeState.theme ? "bg-black text-white" : ""}`}  >
-                <div className={`flex min-h-screen font-body mx-auto ${themeState.theme ? "bg-black text-white" : ""}`} style={{ width: "1490px" }}>
-                    <NavBar />
-                    <div className='flex-1' >
+            <DrawerComponent isOpen={cartState.cartOpen} onClose={() => cartState.handleCartState(false)} />
+            <div className={`flex flex-col justify-between min-h-screen font-body mx-auto`}>
+                <div>
+                    <HeaderNavBar />
+                    <div >
                         {children}
                     </div>
-                    <RightNav />
                 </div>
                 <Footer />
             </div>
+
         </>
     )
 }

@@ -18,7 +18,7 @@ type ButtonProps = {
 export default function Button({ className, children, style, onClick }: Partial<ButtonProps>) {
     return (
         <>
-            <button className={`flex items-center justify-center text-white rounded-lg px-4   ${className}`} style={style} onClick={onClick} > {children} </button>
+            <button className={`flex items-center justify-center text-white px-6 bg-comas-second   ${className}`} style={style} onClick={onClick} > {children} </button>
         </>
     )
 }

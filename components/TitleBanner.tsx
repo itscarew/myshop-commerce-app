@@ -12,7 +12,7 @@ export default function TitleBanner({ title, showIcon, url = "/", children }: Pa
     return (
         <>
             <div>
-                <Link href={url} className='flex items-center text-xl py-3' > <h1>{title} </h1> <h1>{children}</h1> {showIcon && <BsArrowRightShort />}  </Link>
+                <Link href={url} className='flex items-center capitalize text-xl py-3' > <h1>{title} </h1> <h1>{children}</h1> {showIcon && <BsArrowRightShort />}  </Link>
             </div>
         </>
     )

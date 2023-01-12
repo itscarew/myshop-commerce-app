@@ -1,6 +1,6 @@
 import TitleBanner from '../components/TitleBanner'
 import Card from '../components/Card'
-import Search from '../components/Search'
+import Search from '../components/Input'
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import PageCount from '../components/PageCount';

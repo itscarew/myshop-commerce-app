@@ -1,9 +1,9 @@
 import Button from './Button'
 import SmallCard from './SmallCard'
 import { useRouter } from "next/router"
-import Search from './Search'
+import Search from './Input'
 import React, { useState, useEffect } from "react";
-import { MovieApi } from '../api/api';
+import { ShopApi } from '../api/api';
 
 export default function RightNav() {
     const router = useRouter()
@@ -18,14 +18,14 @@ export default function RightNav() {
 
     const [latestMovies, setLatestMovies] = useState<Data[]>([]);
     const getLatestMovies = async () => {
-        const res: any = await MovieApi.get(`upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
+        const res: any = await ShopApi.get(`upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
         setLatestMovies(res?.data.results)
     };
 
 
     const [popularMovies, setPopularMovies] = useState<Data[]>([]);
     const getPopularMovies = async () => {
-        const res: any = await MovieApi.get(`popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
+        const res: any = await ShopApi.get(`popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
         setPopularMovies(res?.data.results)
     };
 

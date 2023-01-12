@@ -5,6 +5,7 @@ import moment from "moment";
 import Button from "./Button";
 import DetailsComponent from "./Detail";
 import React from "react";
+import CartComponent from "./Cart";
 
 type Data = {
     children: React.ReactNode;
@@ -20,13 +21,13 @@ export default function DrawerComponent({ children, isOpen, onClose, movieId }: 
             <Drawer
                 open={isOpen}
                 onClose={onClose}
-                size={900}
+                size={500}
                 direction='right'
                 className='bla bla bla'
                 style={{ overflowY: "auto" }}
             >
                 {children}
-                <DetailsComponent movieId={movieId} />
+                <CartComponent />
             </Drawer>
         </>
     )
