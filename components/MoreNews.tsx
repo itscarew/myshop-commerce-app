@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { IoMdCheckmarkCircle } from "react-icons/io";
+import Image from "next/image";
 
 export default function MoreNews({ className, router }: any) {
   return (
@@ -9,12 +10,19 @@ export default function MoreNews({ className, router }: any) {
         <section className="mb-6 mt-6 text-gray-800 text-center md:text-left">
           <div className="block bg-white">
             <div className={`flex ${className} flex-wrap items-center`}>
-              <div className="grow-0 shrink-0 basis-auto block lg:flex w-full lg:w-6/12 xl:w-4/12">
-                <img
+              <div className="relative grow-0 shrink-0 basis-auto block lg:flex w-full lg:w-6/12 xl:w-4/12">
+                <Image
+                  src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Trendy Pants and Shoes"
+                  // className="w-full"
+                  width={500}
+                  height={500}
+                />
+                {/* <img
                   src="https://mdbootstrap.com/img/new/ecommerce/vertical/126.jpg"
                   alt="Trendy Pants and Shoes"
                   className="w-full"
-                />
+                /> */}
               </div>
               <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
                 <div className="px-6 py-12 md:px-12">
