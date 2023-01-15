@@ -4,9 +4,9 @@ import Layout from '../components/Layout'
 import { ShopApi } from "../api/api"
 import { useRouter } from "next/router";
 import Input from "../components/Input";
-import { CiSearch } from "react-icons/ci"
 import { FiUser } from "react-icons/fi"
 import { MdPassword } from "react-icons/md"
+import { AiOutlineMail } from "react-icons/ai"
 import Link from "next/link";
 
 export default function SignUp() {
@@ -61,7 +61,7 @@ export default function SignUp() {
                             />
                             <Input
                                 label="Email"
-                                icon={<CiSearch size={"20"} />}
+                                icon={<AiOutlineMail size={"20"} />}
                                 type="email"
                                 name="email"
                                 value={data.email}
