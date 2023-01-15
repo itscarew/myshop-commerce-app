@@ -13,10 +13,10 @@ export default function Layout({ children }: any) {
         <>
             <AppHead />
             <DrawerComponent isOpen={cartState.cartOpen} onClose={() => cartState.handleCartState(false)} />
-            <div className={`flex flex-col justify-between min-h-screen font-body mx-auto`}>
-                <div>
+            <div className={`relative w-full flex flex-col justify-between min-h-screen font-body mx-auto`}>
+                <div className='relative w-full' >
                     <HeaderNavBar />
-                    <div >
+                    <div className='pt-24' >
                         {children}
                     </div>
                 </div>

@@ -78,6 +78,15 @@ export default function Home() {
           </div>
           <MoreNews className="flex-row" router={router} />
           <MoreNews className="flex-row-reverse" router={router} />
+
+          <p className="lex text-2xl text-gray-500 font-light py-24 px-80 italic items-center justify-center text-center" >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A soluta corporis
+            voluptate ab error quam dolores doloremque, quae consectetur.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A soluta corporis
+            voluptate ab error quam dolores doloremque, quae consectetur.
+          </p>
+
+
         </div>
       </Layout>
     </>

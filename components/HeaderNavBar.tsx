@@ -6,10 +6,11 @@ import { RxHamburgerMenu } from "react-icons/rx"
 import { FaShopify } from "react-icons/fa"
 import { BsCart4 } from "react-icons/bs"
 import AppContext from "./AppContext";
+import LocalStorage from "../pages/utils/LocalStorage";
 
 export default function HeaderNavBar() {
     const router = useRouter();
-    const { cartState }: any = useContext(AppContext)
+    const { cartState, userState }: any = useContext(AppContext)
     const [open, setOpen] = useState<boolean>(false)
     const [open2, setOpen2] = useState<boolean>(false)
     const [shopOpen, setShopOpen] = useState(false)
@@ -46,16 +47,25 @@ export default function HeaderNavBar() {
         { name: "Electronics", href: "/category/electronics" },
     ]
 
+    useEffect(() => {
+        const userDataPersist = LocalStorage.getItem("userData")
+        if (userDataPersist) {
+            userState.setUserData(userDataPersist)
+        }
+    }, [])
+
+    const userData = userState.userData
+
     return (
         <>
-            <nav className="bg-white border-gray-200 px-2 sm:px-14 py-2.5 rounded dark:bg-gray-900 ">
+            <nav className="bg-white border-gray-200 px-2 sm:px-14 py-2.5 w-full fixed z-10  h-24">
                 <div className="flex flex-wrap items-center justify-between mx-auto">
                     <Link href="/" className="flex items-center">
                         <FaShopify size={35} />
                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">MyShop</span>
                     </Link>
                     <div className="flex items-center md:order-2">
-                        <button type="button" onClick={handleUserHambuger} className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                        <button type="button" onClick={() => router.push("/signin")} className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                             <span className="sr-only">Open user menu</span>
                             <Image width={32} height={32} className="rounded-full" src="/reel.png" alt="user photo" />
                         </button>
@@ -66,8 +76,8 @@ export default function HeaderNavBar() {
                         </button>
                         <div className={`z-50 absolute top-10 right-16  ${open2 ? "" : "hidden"}  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow " id="user-dropdown`}>
                             <div className="px-4 py-3">
-                                <span className="block text-sm text-gray-900 ">Bonnie Green</span>
-                                <span className="block text-sm font-medium text-gray-500 truncate ">name@flowbite.com</span>
+                                <span className="block text-sm text-gray-900 capitalize "> {userData?.name?.firstname} {userData?.name?.lastname}  </span>
+                                <span className="block text-sm font-medium text-gray-500 truncate "> {userData?.email}  </span>
                             </div>
                             <ul className="py-1" aria-labelledby="user-menu-button">
                                 {userRoutes.map((route) => {

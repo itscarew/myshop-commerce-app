@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { useState, useEffect } from "react";
 import AppContext from '../components/AppContext';
 import { Alert, NotifyType } from '../components/Alert';
+import LocalStorage from './utils/LocalStorage';
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [cart, setCart] = useState<Data[]>([])
   const [theme, setTheme] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
+  const [userData, setUserData] = useState()
 
   const handleCartState = () => {
     setCartOpen(!cartOpen)
@@ -44,11 +46,14 @@ export default function App({ Component, pageProps }: AppProps) {
     setCart(updatedArray)
   }
 
+
+
   return (<AppContext.Provider
     value={{
       mainCartState: { cart, addToCart, removeCartItem, setCart },
       themeState: { theme, setTheme },
-      cartState: { cartOpen, handleCartState }
+      cartState: { cartOpen, handleCartState },
+      userState: { userData, setUserData }
     }}>
     <Component {...pageProps} />
   </AppContext.Provider>)

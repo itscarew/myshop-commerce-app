@@ -9,6 +9,7 @@ import AppContext from './AppContext'
 import { useRouter } from 'next/router'
 import { Alert, NotifyType } from './Alert'
 import Link from 'next/link'
+import { numberWithCommas } from '../pages/utils/formatNumber'
 
 export default function Card({ watchlist, data, onClick, }: any) {
     const { mainCartState }: any = useContext(AppContext)
@@ -24,7 +25,6 @@ export default function Card({ watchlist, data, onClick, }: any) {
         }
     }
 
-
     const checkInCart = (id: any) => {
         const check = cart.find((cart: any) => {
             return cart.id === id
@@ -32,7 +32,27 @@ export default function Card({ watchlist, data, onClick, }: any) {
         return check
     }
 
+    const add = (id: any) => {
+        let newCart = [...cart]
+        const findItem = newCart.find((item: any) => {
+            return item.id === id
+        })
+        findItem.quantity = findItem.quantity + 1
+        mainCartState.setCart(newCart)
+    }
 
+    const deduct = (id: any) => {
+        let newCart = [...cart]
+        const findItem = newCart.find((item: any) => {
+            return item.id === id
+        })
+        if (findItem.quantity < 2) {
+            return null
+        } else {
+            findItem.quantity = findItem.quantity - 1
+            mainCartState.setCart(newCart)
+        }
+    }
 
     return (
         <>
@@ -64,23 +84,31 @@ export default function Card({ watchlist, data, onClick, }: any) {
                                 <span className='text-sm font-semibold text-white py-0.5 px-2' style={{ background: "#e85d04" }} > {data?.rating?.rate} </span>
                             </div>
                             <Link href={`/category/${data?.category}`} className='text-sm'> {data?.category} </Link>
-                            <h4 className='  text-lg  font-medium'>&#36;  {data?.price} </h4>
+                            <h4 className='  text-lg  font-medium'>&#36;{numberWithCommas(data?.price)}</h4>
 
                         </div>
-                        <Button
-                            className={`${checkInCart(data?.id) ? " bg-comas-third" : ""} h-10 mt-2`}
-                            onClick={
-                                () => mainCartState.addToCart(
-                                    {
-                                        id: data.id,
-                                        title: data.title,
-                                        price: data.price,
-                                        image: data.image,
-                                        quantity: 1
-                                    }
-                                )} >
-                            {checkInCart(data?.id) ? <AiOutlineCheck size={25} /> : "Add to Cart"}
-                        </Button>
+                        {checkInCart(data?.id) ?
+                            <div className='w-full flex divide-x-2 mt-3 h-10  border-2 border-comas-second text-lg' >
+                                <div className="w-1/3 flex items-center justify-center cursor-pointer" onClick={() => deduct(data.id)} >-</div>
+                                <div className="w-1/3 flex items-center justify-center">{checkInCart(data.id).quantity}</div>
+                                <div className="w-1/3 flex items-center justify-center cursor-pointer" onClick={() => add(data.id)} >+</div>
+                            </div>
+                            :
+                            <Button
+                                className={`h-10 mt-2`}
+                                onClick={
+                                    () => mainCartState.addToCart(
+                                        {
+                                            id: data.id,
+                                            title: data.title,
+                                            price: data.price,
+                                            image: data.image,
+                                            quantity: 1
+                                        }
+                                    )} >
+                                Add to Cart
+                            </Button>
+                        }
                     </div>
                 </div>
             </div>
