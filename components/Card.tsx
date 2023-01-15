@@ -7,7 +7,7 @@ import { useContext, } from 'react'
 import AppContext from './AppContext'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { numberWithCommas } from '../pages/utils/formatNumber'
+import { numberWithCommas } from '../utils/formatNumber'
 
 export default function Card({ data }: any) {
     const { mainCartState }: any = useContext(AppContext)

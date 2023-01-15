@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 import Layout from '../../components/Layout';
 import { useContext } from "react"
 import AppContext from '../../components/AppContext';
-import { numberWithCommas } from '../utils/formatNumber';
+import { numberWithCommas } from '../../utils/formatNumber';
 
 
 export default function ProductDetails() {

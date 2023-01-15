@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { useState, useEffect } from "react";
 import AppContext from '../components/AppContext';
 import { Alert, NotifyType } from '../components/Alert';
-import LocalStorage from './utils/LocalStorage';
+import LocalStorage from '../utils/LocalStorage';
 
 export default function App({ Component, pageProps }: AppProps) {
 

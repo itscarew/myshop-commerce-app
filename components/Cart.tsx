@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import Button from "./Button"
 import Image from "next/image"
 import { CiShoppingCart } from "react-icons/ci"
-import { numberWithCommas } from "../pages/utils/formatNumber"
+import { numberWithCommas } from "../utils/formatNumber"
 
 export default function CartComponent() {
     const { mainCartState, userState }: any = useContext(AppContext)

@@ -7,7 +7,7 @@ import Input from "../components/Input";
 import { CiSearch } from "react-icons/ci"
 import { FiUser } from "react-icons/fi"
 import Link from "next/link";
-import LocalStorage from "./utils/LocalStorage";
+import LocalStorage from "../utils/LocalStorage";
 import AppContext from "../components/AppContext";
 import jwtDecode from "jwt-decode";
 

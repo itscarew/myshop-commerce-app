@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx"
 import { FaShopify } from "react-icons/fa"
 import { BsCart4 } from "react-icons/bs"
 import AppContext from "./AppContext";
-import LocalStorage from "../pages/utils/LocalStorage";
+import LocalStorage from "../utils/LocalStorage";
 
 export default function HeaderNavBar() {
     const router = useRouter();
