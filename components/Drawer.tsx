@@ -1,9 +1,5 @@
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import Image from 'next/image'
-import moment from "moment";
-import Button from "./Button";
-import DetailsComponent from "./Detail";
 import React from "react";
 import CartComponent from "./Cart";
 

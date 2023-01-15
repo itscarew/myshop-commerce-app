@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Input from "../components/Input";
 import { CiSearch } from "react-icons/ci"
 import { FiUser } from "react-icons/fi"
+import { MdPassword } from "react-icons/md"
 import Link from "next/link";
 
 export default function SignUp() {
@@ -76,7 +77,7 @@ export default function SignUp() {
                                 value={data.username}
                                 placeholder="username" />
                             <Input label="Password"
-                                icon={<CiSearch size={"20"} />}
+                                icon={<MdPassword size={"20"} />}
                                 type="password"
                                 placeholder="password"
                                 onChange={handleChange}

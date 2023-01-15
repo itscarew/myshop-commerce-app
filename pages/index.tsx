@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Layout from '../components/Layout'
 import TitleBanner from '../components/TitleBanner'
 import { ShopApi } from "../api/api"
 import Image from 'next/image'
-import DrawerComponent from "../components/Drawer";
 import { useRouter } from "next/router";
-import AppContext from "../components/AppContext";
-import moment from "moment";
 import MoreNews from "../components/MoreNews";
 
 export default function Home() {
@@ -55,8 +52,6 @@ export default function Home() {
           </div>
         </div>
 
-
-
         <div className="px-14" >
           <p className="lex text-2xl text-gray-500 font-light py-24 px-44 italic items-center justify-center text-center" >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A soluta corporis
@@ -85,8 +80,6 @@ export default function Home() {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A soluta corporis
             voluptate ab error quam dolores doloremque, quae consectetur.
           </p>
-
-
         </div>
       </Layout>
     </>

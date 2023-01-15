@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router"
-import { CiSearch } from "react-icons/ci"
 import AppContext from "./AppContext";
 
 export default function Input({ onChange, onClick, label, placeholder, icon, type = "text", value, name, props }: any) {

@@ -1,6 +1,5 @@
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import AppContext from './AppContext';
 import React, { useContext } from "react";
 
 export enum NotifyType {

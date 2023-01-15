@@ -2,8 +2,6 @@ import AppHead from '../components/Head'
 import AppContext from './AppContext'
 import DrawerComponent from './Drawer'
 import Footer from './Footer'
-import NavBar from './NavBar'
-import RightNav from './RightNav'
 import React, { useContext } from "react";
 import HeaderNavBar from './HeaderNavBar'
 

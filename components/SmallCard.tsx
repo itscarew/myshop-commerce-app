@@ -1,6 +1,5 @@
 import moment from 'moment'
 import Image from 'next/image'
-import Button from './Button'
 
 export default function SmallCard({ data }: any) {
 

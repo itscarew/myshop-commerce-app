@@ -1,21 +1,11 @@
 import AppContext from "./AppContext"
-import { Fragment, useContext, useEffect, useState, } from 'react'
+import { useContext } from 'react'
 import Button from "./Button"
 import Image from "next/image"
 import { CiShoppingCart } from "react-icons/ci"
-import { ShopApi } from "../api/api"
 import { numberWithCommas } from "../pages/utils/formatNumber"
 
 export default function CartComponent() {
-    type Data = {
-        id: number;
-        image: string;
-        title: string;
-        description: string;
-        category: string;
-        price: string
-    };
-
     const { mainCartState, userState }: any = useContext(AppContext)
     const cart = mainCartState.cart
 

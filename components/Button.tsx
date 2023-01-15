@@ -9,13 +9,6 @@ type ButtonProps = {
 };
 
 
-// export enum NotifyType {
-//     error = "error",
-//     success = "success",
-//     warning = "warning"
-// }
-
-
 export default function Button({ className, children, style, onClick, type }: Partial<ButtonProps>) {
     return (
         <>

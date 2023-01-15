@@ -3,15 +3,13 @@ import { BsTrash } from "react-icons/bs"
 import { AiOutlineCheck } from "react-icons/ai"
 import moment from 'moment'
 import Image from 'next/image'
-import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useContext, } from 'react'
+import { useContext, } from 'react'
 import AppContext from './AppContext'
 import { useRouter } from 'next/router'
-import { Alert, NotifyType } from './Alert'
 import Link from 'next/link'
 import { numberWithCommas } from '../pages/utils/formatNumber'
 
-export default function Card({ watchlist, data, onClick, }: any) {
+export default function Card({ data }: any) {
     const { mainCartState }: any = useContext(AppContext)
     const cart = mainCartState.cart
     const router = useRouter()

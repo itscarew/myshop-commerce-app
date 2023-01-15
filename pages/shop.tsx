@@ -1,7 +1,6 @@
 import Layout from '../components/Layout'
 import TitleBanner from '../components/TitleBanner'
 import Card from '../components/Card'
-
 import React, { useState, useEffect } from "react";
 import { ShopApi } from '../api/api';
 import DrawerComponent from '../components/Drawer';
@@ -104,9 +103,7 @@ export default function Shop() {
                             />
                         })}
                     </div>
-
                 </div>
-                <DrawerComponent isOpen={isOpen} onClose={toggleDrawer} movieId={movieId} />
             </Layout>
         </>
     )
