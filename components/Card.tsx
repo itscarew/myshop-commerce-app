@@ -15,8 +15,8 @@ export default function Card({ data }: any) {
     const router = useRouter()
 
     const titleLength = (text: string) => {
-        if (text?.length > 24) {
-            return `${text?.slice(0, 20)}....`
+        if (text?.length > 18) {
+            return `${text?.slice(0, 18)}....`
         }
         else {
             return text
